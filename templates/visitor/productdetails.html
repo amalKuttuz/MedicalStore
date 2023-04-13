@@ -1,0 +1,17 @@
+{% extends 'visitor/base.html' %}
+{% block content %}
+        
+<br><h1>Product details </h1>
+    {% if allprdlist %} <br>
+        {% for pd in allprdlist %} <br>
+        <img src="{{pd.med_image.url}}"> <br>
+        <h2>{{pd.med_name}} </h2> <br>
+        <h1>{{pd.med_price}} $</h1> <br>
+        {{pd.med_category}} <br>
+        <a name="Add" id="add" class="btn btn-primary" href="#" role="button">Add to cart</a>
+        {% endfor %} 
+    {% else %}
+        not found
+    {% endif %}
+
+{% endblock content %}
