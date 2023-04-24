@@ -25,7 +25,8 @@ class Products(models.Model):
 class Profile(models.Model):
       username=models.ForeignKey(User, on_delete=models.CASCADE)
       phone_no=models.IntegerField(max_length=9)
-      housename=models.TextField()
+      houseno=models.TextField()
       city=models.TextField()
       pincode=models.IntegerField( max_length=5)
+      
       

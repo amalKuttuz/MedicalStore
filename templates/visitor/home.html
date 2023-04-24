@@ -1,18 +1,68 @@
 {% extends 'visitor/base.html' %}
+{% load static %}
+
 {% block content %}
-        
-<br><h1>Products </h1>
-    {% if allprdlist %} <br>
-        {% for pd in allprdlist %} <br>
-        <img src="{{pd.med_image.url}}"> <br>
-        {{pd.med_name}} <br>
-        {{pd.med_price}} $ <br>
-        {{pd.med_category}} <br>
-        <a name="Add" id="add" class="btn btn-primary" href="#" role="button">Add to cart</a>
-        {% endfor %} 
-    {% else %}
-        No products found
-    {% endif %}
+<div class="container border bg-sucess p-1 pb-5 ">
+    <!--Bootstrap Carousel Start-->
+    
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/banner1.jpg' %}" class="d-block w-100" alt="carosel1">
+        </div>
+        <div class="carousel-item active">
+          <img src="{% static 'images/banner2.jpg' %}" class="d-block w-100" alt="carosel1">
+        </div>
+        <div class="carousel-item active">
+          <img src="{% static 'images/banner3.webp' %}" class="d-block w-100 h-90" alt="carosel1">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      </div>
 
+  <!-- Bootstrap Carousel End {% endcomment -->
 
+  <!-- Bootstrap Grid Start -->
+  {% if allprdlist %}
+  <div class="container text-center ">
+      <h1>Products </h1>
+
+            <div class="container border bg-sucess m-1 p-1">
+              <div class="row p-1 m-1">
+                {% for pd in allprdlist %} <br>
+
+                  <div class="col-sm border p-1 m-1 bg-sucess">
+                      <a href="/Productdetails/{{pd.id}}"> 
+                      <img class="rounded" src="{{pd.med_image.url}}">
+                      <h4>{{pd.med_name}} <span class="badge bg-secondary"></span></h4>
+                      <p class="price">Rs {{pd.med_price}}</p>
+                      <span class="badge text-bg-danger">{{pd.med_category}}</span>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary m-1" type="button">ADD TO CART</button>
+                      </div> 
+                    </a>               
+                  </div>
+                {% endfor %}    
+              </div>
+            </div>
+    </div>
+<!-- Bootstrap Grid End -->
+
+  {% else %}
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          <div>
+              Product not found
+          </div>
+    </div>
+  {% endif %}
+
+</div>
 {% endblock content %}

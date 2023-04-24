@@ -1,17 +1,34 @@
 {% extends 'visitor/base.html' %}
 {% block content %}
-        
-<br><h1>Product details </h1>
-    {% if allprdlist %} <br>
-        {% for pd in allprdlist %} <br>
-        <img src="{{pd.med_image.url}}"> <br>
-        <h2>{{pd.med_name}} </h2> <br>
-        <h1>{{pd.med_price}} $</h1> <br>
-        {{pd.med_category}} <br>
-        <a name="Add" id="add" class="btn btn-primary" href="#" role="button">Add to cart</a>
-        {% endfor %} 
-    {% else %}
-        not found
-    {% endif %}
-
+<div class="container">
+    {% if prddetails %} <br>
+    {% for pd in prddetails %}
+    <!-- Left Column / Headphones Image -->
+    <div class="left-column">
+      <img data-image="black" src="{{pd.med_image.url}}" alt="">
+    </div>
+   
+   
+    <!-- Right Column -->
+    <div class="right-column">
+   
+      <!-- Product Description -->
+      <div class="product-description">
+            <span class="badge text-bg-danger">{{pd.med_category}}</span>
+            <h1>{{pd.med_name}}</h1>
+            <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+      </div>
+        <!-- Product Pricing -->
+        <div class="product-price">
+            <span>{{pd.med_price}}$</span>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary m-1" type="button">ADD TO CART</button>
+              </div> 
+        </div>
+  </div>        
+  {% endfor %} 
+  {% else %}
+      something went wrong on server side
+  {% endif %}
+</div>
 {% endblock content %}
