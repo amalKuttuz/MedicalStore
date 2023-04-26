@@ -1,34 +1,39 @@
 {% extends 'visitor/base.html' %}
+{% block title %}Product Details{% endblock title %}
 {% block content %}
-<div class="container">
-    {% if prddetails %} <br>
+<div class="container my-4 border">
+  {% if prddetails %} <br>
     {% for pd in prddetails %}
-    <!-- Left Column / Headphones Image -->
-    <div class="left-column">
-      <img data-image="black" src="{{pd.med_image.url}}" alt="">
-    </div>
-   
-   
-    <!-- Right Column -->
-    <div class="right-column">
-   
-      <!-- Product Description -->
-      <div class="product-description">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{{pd.med_image.url}}" alt="Product Image" class="rounded img-fluid pb-1" width="600" height="700" />
+          </div>
+          <div class="col-md-6">
+            <p class="med-name"><h1>{{pd.med_name}}</h1> </p>
             <span class="badge text-bg-danger">{{pd.med_category}}</span>
-            <h1>{{pd.med_name}}</h1>
-            <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-      </div>
-        <!-- Product Pricing -->
-        <div class="product-price">
-            <span>{{pd.med_price}}$</span>
+            <p class="description-head"> <h3><B>Description: </B></h3></p>
+            <p class="description">{{pd.med_description}}</p>
+            <p class="usage-head"> <h3><B>Usage: </B></h3></p>
+            <p class="usage"> {{pd.med_usage}}</p>
+            <p class="stock-head"> <h3><B>Stock: </B></h3></p>
+            <p class="stock">{{pd.stock_available}}mg</p>
+            <p class="price"> <B>
+              {% if pd.med_category == "Tablet" %}
+              Rs {{pd.med_price}} for 10 Tabs
+              {% else %}
+              Rs {{pd.med_price}}
+
+              {% endif %}
+            </B></p>
+
             <div class="d-grid gap-2">
-                <button class="btn btn-primary m-1" type="button">ADD TO CART</button>
-              </div> 
+              <button class="btn btn-primary mb-1" type="button">ADD TO CART</button>
+            </div>         
+          </div>
         </div>
-  </div>        
   {% endfor %} 
   {% else %}
-      something went wrong on server side
+     <p> Something went wrong, try again from homepage </p>
   {% endif %}
 </div>
 {% endblock content %}

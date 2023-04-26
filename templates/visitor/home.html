@@ -1,8 +1,7 @@
 {% extends 'visitor/base.html' %}
 {% load static %}
-
+{% block title %}Home{% endblock title %}
 {% block content %}
-<div class="container border bg-sucess p-1 pb-5 ">
     <!--Bootstrap Carousel Start-->
     
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -28,6 +27,7 @@
       </div>
 
   <!-- Bootstrap Carousel End {% endcomment -->
+<div class="container border bg-sucess p-1 pb-5 ">
 
   <!-- Bootstrap Grid Start -->
   {% if allprdlist %}
@@ -40,12 +40,12 @@
 
                   <div class="col-sm border p-1 m-1 bg-sucess">
                       <a href="/Productdetails/{{pd.id}}"> 
-                      <img class="rounded" src="{{pd.med_image.url}}">
+                      <img class="rounded img-fluid" src="{{pd.med_image.url}}" width="300" height="200">
                       <h4>{{pd.med_name}} <span class="badge bg-secondary"></span></h4>
                       <p class="price">Rs {{pd.med_price}}</p>
                       <span class="badge text-bg-danger">{{pd.med_category}}</span>
                       <div class="d-grid gap-2">
-                        <button class="btn btn-primary m-1" type="button">ADD TO CART</button>
+                        <a href="/addtocart/{{pd.id}}" class="btn btn-primary m-1">ADD TO CART</a>
                       </div> 
                     </a>               
                   </div>
@@ -59,7 +59,7 @@
       <div class="alert alert-danger d-flex align-items-center" role="alert">
           <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
           <div>
-              Product not found
+             <p> No Products found, You can add new products through admin panel </p>
           </div>
     </div>
   {% endif %}

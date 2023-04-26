@@ -1,4 +1,6 @@
 {% extends 'visitor/base.html' %}
+{% block title %}Category{% endblock title %}
+
 {% block content %}
         
 <br><h1> Category</h1>

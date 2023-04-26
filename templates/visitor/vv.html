@@ -1,65 +1,48 @@
-<main class="container">
- 
-    <!-- Left Column / Headphones Image -->
-    <div class="left-column">
-      <img data-image="black" src="images/black.png" alt="">
-      <img data-image="blue" src="images/blue.png" alt="">
-      <img data-image="red" class="active" src="images/red.png" alt="">
-    </div>
-   
-   
-    <!-- Right Column -->
-    <div class="right-column">
-   
-      <!-- Product Description -->
-      <div class="product-description">
-        <span>Headphones</span>
-        <h1>Beats EP</h1>
-        <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-      </div>
-   
-      <!-- Product Configuration -->
-      <div class="product-configuration">
-   
-        <!-- Product Color -->
-        <div class="product-color">
-          <span>Color</span>
-   
-          <div class="color-choose">
-            <div>
-              <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-              <label for="red"><span></span></label>
-            </div>
-            <div>
-              <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-              <label for="blue"><span></span></label>
-            </div>
-            <div>
-              <input data-image="black" type="radio" id="black" name="color" value="black">
-              <label for="black"><span></span></label>
-            </div>
-          </div>
-   
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="https://via.placeholder.com/500x500.png" alt="Product Image" class="img-fluid" />
         </div>
-   
-        <!-- Cable Configuration -->
-        <div class="cable-config">
-          <span>Cable configuration</span>
-   
-          <div class="cable-choose">
-            <button>Straight</button>
-            <button>Coiled</button>
-            <button>Long-coiled</button>
-          </div>
-   
-          <a href="#">How to configurate your headphones</a>
+        <div class="col-md-6">
+          <h1>Product Name</h1>
+          <p>Price: $9.99</p>
+          <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos corporis sapiente dolores a quod tenetur vitae perferendis natus excepturi minima laudantium placeat rem ipsam saepe ea nobis corrupti, aspernatur impedit.</p>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
         </div>
       </div>
-   
-      <!-- Product Pricing -->
-      <div class="product-price">
-        <span>148$</span>
-        <a href="#" class="cart-btn">Add to cart</a>
-      </div>
     </div>
-  </main>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

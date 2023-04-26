@@ -1,25 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import *
 from django.views import View
 from.forms import *
 # Create your views here.
 def homepage(request):
     context=Productlistfunction(request)
-    print(context)
     return render(request,'visitor/home.html',context)
 
 def ProductPage(request,pk):
     context=productdetailfunction(request,pk)
     return render(request,'visitor/productdetails.html',context)
 
-def profile(request):
-    if request.method == "GET":
-        return render(request, "account/profile.html",{"form": ProfileForm})
-    elif request.method == "POST":
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-    return render(request,'account/profile.html')
+def userprofile(request):
+        form = ProfileForm(instance=request.user)
+        context={'form':form}
+        if request.method == "POST":
+            form = ProfileForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+        return render(request,'account/profile.html',context)
+
+def cart(request):
+    products=Cart.objects.filter(user=request.user)
+    return render(request,'account/cart.html')
+ 
+def addtocart(request,pk):
+    status=Cart.save(product_id=pk,quanity='1',user=request.user)
+    return redirect("cart")
 
 
 
@@ -32,9 +39,10 @@ def profile(request):
     # else:
     #     form=ProfileForm(request.user)
 
-# def catnavlist(request):
-#     catelist=CategoryList.objects.all()
-#     return catelist
+def categoryfunction(request):
+    catelist=CategoryList.objects.all()
+    context= {catelist}
+    return context
 
 
 def Productlistfunction(request):
