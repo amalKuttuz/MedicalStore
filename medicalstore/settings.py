@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'Webapp'
+    'Webapp',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+
 
 
 ]
@@ -106,6 +109,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': 'df76e236c7e7b07cc783',
+            'secret': '65511618d5ca5230b901aef18d4882a846e5d819',
+            'key': ''
+        }
+    },
+
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '995415497111-nebnq07f5du1bu21gdhak56kk14t1iil.apps.googleusercontent.com',
+            'secret': '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',
+            'key': 'AIzaSyAYo5jChAeRrh2wbz3mANrvGBXbigA398M'
+        }
+    },
+
+
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

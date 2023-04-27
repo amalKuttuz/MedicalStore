@@ -12,9 +12,7 @@
         <div class="carousel-item active">
           <img src="{% static 'images/banner2.jpg' %}" class="d-block w-100" alt="carosel1">
         </div>
-        <div class="carousel-item active">
-          <img src="{% static 'images/banner3.webp' %}" class="d-block w-100 h-90" alt="carosel1">
-        </div>
+        
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,7 +25,7 @@
       </div>
 
   <!-- Bootstrap Carousel End {% endcomment -->
-<div class="container border bg-sucess p-1 pb-5 ">
+<div class="container p-1 pb-5 ">
 
   <!-- Bootstrap Grid Start -->
   {% if allprdlist %}
@@ -38,9 +36,9 @@
               <div class="row p-1 m-1">
                 {% for pd in allprdlist %} <br>
 
-                  <div class="col-sm border p-1 m-1 bg-sucess">
+                  <div class="col-sm-2 border p-1 m-1 bg-sucess">
                       <a href="/Productdetails/{{pd.id}}"> 
-                      <img class="rounded img-fluid" src="{{pd.med_image.url}}" width="300" height="200">
+                      <img class="rounded img-fluid" src="{{pd.med_image.url}}" width="350" height="200">
                       <h4>{{pd.med_name}} <span class="badge bg-secondary"></span></h4>
                       <p class="price">Rs {{pd.med_price}}</p>
                       <span class="badge text-bg-danger">{{pd.med_category}}</span>
