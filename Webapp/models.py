@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Model of Product Categories
 class CategoryList(models.Model):
     categories=models.CharField(max_length=50,default="Tablet")
+    addedby=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     #To return the category value
     def __str__(self):
             return self.categories

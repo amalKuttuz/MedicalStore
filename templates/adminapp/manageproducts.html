@@ -1,0 +1,54 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% block title %}Manage products{% endblock title %}
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-dismissible alert-success d-flex align-items-center" role="alert">
+        <div>
+          Here {{user}} can view, edit or delete the details of product added by you.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+    </div>
+    <H2>    Products List </H2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">SI.NO</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">M.F.G</th>
+              <th scope="col">Expiry</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Price</th>
+              <th scope="col">Manage</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% if product_list %}
+            {% for product in product_list %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{product.med_name}}</td>
+              <td>{{product.med_category}}</td>
+              <td>{{product.mfg_date}}</td>
+              <td>{{product.expiry_date}} </td>
+              <td>{{product.stock_available}} </td>
+              <td>{{product.med_price}} </td>
+
+              <td> <a name="manage" id="manage" class="btn btn-danger" href="#" role="button">Manage</a></td>
+
+            </tr>
+            {% endfor %}
+            {% endif %}  
+          </tbody>
+        
+    </table>
+    {% lorem 4 p random %}
+</div>
+{% lorem 4 p random %}
+{% endblock content %}

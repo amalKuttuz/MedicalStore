@@ -21,11 +21,14 @@ def userprofile(request):
         return render(request,'account/profile.html',context)
 
 def cart(request):
-    products=Cart.objects.filter(user=request.user)
+    products=Cart.objects.filter(username=request.user)
     return render(request,'account/cart.html')
  
 def addtocart(request,pk):
-    status=Cart.save(product_id=pk,quanity='1',user=request.user)
+    cart=User.objects.filter(username=request.user)
+    prd=Products.objects.filter(id=pk)
+    quanity='1'
+    Cart.save(cart,prd,quanity)
     return redirect("cart")
 
 

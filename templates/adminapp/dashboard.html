@@ -1,0 +1,15 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock title %}
+{% block style %}
+<link rel="stylesheet"  href="{% static 'css/sidebarstyle.css' %}">
+{% endblock style %}
+
+{% block content %}
+     
+
+hiiii {{user}}...
+{% lorem 4 p random %}
+
+
+{% endblock content %}
