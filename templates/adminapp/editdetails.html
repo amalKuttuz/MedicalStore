@@ -1,0 +1,14 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% block title %}Manage products{% endblock title %}
+{% block style %}
+{% endblock style %}
+{% block content %}
+<div class="container mt-4">
+<form method='POST'  >
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value='Submit'>
+</form>
+</div>
+{% endblock %}

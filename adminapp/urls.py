@@ -9,5 +9,6 @@ urlpatterns = [
     path('managecategory', views.managecategory, name='managecategory'),
     # path('accounts/userprofile/', views.userprofile, name='userprofile'),
     path('customers', views.customers, name='customers'),
+    path('editcategory/<int:pk>', views.editcategory, name='editcategory'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

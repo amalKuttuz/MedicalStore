@@ -7,9 +7,15 @@ def homepage(request):
     context=Productlistfunction(request)
     return render(request,'visitor/home.html',context)
 
-def ProductPage(request,pk):
+def productpage(request,pk):
     context=productdetailfunction(request,pk)
     return render(request,'visitor/productdetails.html',context)
+
+def aboutpage(request):
+    return render(request,'visitor/about.html')
+
+def contactpage(request):
+    return render(request,'visitor/contact.html')
 
 def userprofile(request):
         form = ProfileForm(instance=request.user)
