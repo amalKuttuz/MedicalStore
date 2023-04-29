@@ -42,10 +42,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'Webapp',
+    'adminapp',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
-
-
 
 ]
 

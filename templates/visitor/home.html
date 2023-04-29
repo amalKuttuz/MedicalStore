@@ -33,10 +33,10 @@
       <h1>Products </h1>
 
             <div class="container border bg-sucess m-1 p-1">
-              <div class="row p-1 m-1">
+              <div class="row row-cols-4 p-1 m-1">
                 {% for pd in allprdlist %} <br>
 
-                  <div class="col-sm-2 border p-1 m-1 bg-sucess">
+                  <div class="col border bg-sucess p-1">
                       <a href="/Productdetails/{{pd.id}}"> 
                       <img class="rounded img-fluid" src="{{pd.med_image.url}}" width="350" height="200">
                       <h4>{{pd.med_name}} <span class="badge bg-secondary"></span></h4>

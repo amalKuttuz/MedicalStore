@@ -7,9 +7,15 @@ def homepage(request):
     context=Productlistfunction(request)
     return render(request,'visitor/home.html',context)
 
-def ProductPage(request,pk):
+def productpage(request,pk):
     context=productdetailfunction(request,pk)
     return render(request,'visitor/productdetails.html',context)
+
+def aboutpage(request):
+    return render(request,'visitor/about.html')
+
+def contactpage(request):
+    return render(request,'visitor/contact.html')
 
 def userprofile(request):
         form = ProfileForm(instance=request.user)
@@ -21,11 +27,14 @@ def userprofile(request):
         return render(request,'account/profile.html',context)
 
 def cart(request):
-    products=Cart.objects.filter(user=request.user)
+    products=Cart.objects.filter(username=request.user)
     return render(request,'account/cart.html')
  
 def addtocart(request,pk):
-    status=Cart.save(product_id=pk,quanity='1',user=request.user)
+    cart=User.objects.filter(username=request.user)
+    prd=Products.objects.filter(id=pk)
+    quanity='1'
+    Cart.save(cart,prd,quanity)
     return redirect("cart")
 
 

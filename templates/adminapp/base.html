@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}  {% endblock title %}  MED APP </title>
+        <meta name="description" content="An online Medical store wesite in kerala">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block style %}  {% endblock style %}
+        <link rel="stylesheet"  href="{% static 'css/sidebarstyle.css' %}">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </head>
+    <body>     <!-- The sidebar -->
+      <div class="sidebar">
+          <a class="active" href="{% url 'dashboard' %}">Dahboard Home</a>
+           <a href="{% url 'manageproduct' %}" >Manage Products</a>
+          <a href="{% url 'managecategory' %}">Manage Category</a>
+          <a href="{% url 'customers' %}">Customers</a> 
+          <a href="/">View site</a>
+
+      </div>
+      
+      <!-- Page content -->
+      <div class="content">
+                {% block content %}
+            {% comment %} {% if messages %}
+                <div>
+                    <strong>{% trans "Messages:" %}</strong>
+                    <ul>
+                        {% for message in messages %}
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %} {% endcomment %}
+        
+        {% endblock content %}
+      </div>
+
+        <footer class="container-fluid bg-success text-white text-center fixed-bottom">
+            MED APP 2023
+        </footer>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
